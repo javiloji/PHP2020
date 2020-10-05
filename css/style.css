@@ -1,0 +1,168 @@
+
+body{
+    margin:0;
+    background-color: #F1F6F1;
+    font-size: 16px;    
+    font-family: 'Lato', sans-serif;
+
+}
+
+#cabecera{
+    background-color:#E4E3D8;
+    text-align: center;
+    padding: 2%;
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+#volver{
+    padding: 2%;
+    width: 15%;
+    margin: 0;
+
+}
+
+#enlacevolver{
+    text-decoration: none;
+}
+
+#volver>a>div>p{
+    margin: 2%;
+    border: black double 5px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: silver;
+    font-size: 1.5em;
+    color: black;
+
+}
+#volver>a>div>p:hover{
+    color: snow;
+    background-color: #615D5C;
+
+}
+
+#menu{
+    width: 94%;
+    margin: 3%;
+
+}
+
+.submenu{
+    display: inline-block;
+    border: solid 2px black;
+    width: 22%;
+    background-color: #D3DED5;
+    text-align: center;
+    font-family: cursive;
+    margin: 1%;
+    padding: 60px;
+}
+
+.submenu:hover{
+    background-color: silver;
+	color: black;
+	transform: scale(1.05,1.05);
+	transition: all ease 1s;
+}
+
+.submenu >div > div{
+    display: none;
+}
+
+.submenu:hover > div >div{
+    display:block;
+    transition: all ease 2s;
+}
+
+.divsubmenu{
+    text-align: center;
+    padding: 4%;
+    font-size: 2em;
+    
+}
+
+.submenu1{
+    display: inline-block;
+    border: solid 2px black;
+    width: 40%;
+    font-size: 1em;
+    padding: 1%;
+    margin: 2% auto;
+    background-color: whitesmoke;
+
+
+}
+
+.submenu1:hover {
+    background-color: #252625;
+    
+	cursor: pointer;
+	transform: scale(1.05,1.05);
+    transition: all ease 2s;
+}
+
+.submenu1:hover a{
+    color: white;
+}
+
+.ulsubmenu1{
+    font-size: 20px;
+}
+.enlacesubmenu1{
+    text-decoration: none;
+    color: black;
+}
+
+#fotoWordpress{
+	border-radius: 500px;
+}
+
+footer{
+    background-color: silver;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 100px;
+}
+
+footer *{
+    vertical-align: middle;
+}
+
+footer div{
+    display: inline-block;
+    width: 44%;
+    text-align: right;
+}
+
+footer p{
+    
+    display: inline-block;
+    margin-left: 10px;
+    width: 45%;
+    vertical-align: middle;
+    text-shadow: black 1px 1px 20px ;
+    font-size: 1.3rem;
+}
+
+footer a{
+    color: white;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+footer div img{
+    display: inline-block;
+    margin-right:  5px;
+    width: 30px;
+    vertical-align: middle;
+}
+
+footer div img:hover{
+	transform: scale(1.2,1.2);
+    transition: ease-in 0.3s;
+}
