@@ -15,33 +15,6 @@ body{
     margin-bottom: 50px;
 }
 
-#volver{
-    padding: 2%;
-    width: 15%;
-    margin: 0;
-
-}
-
-#enlacevolver{
-    text-decoration: none;
-}
-
-#volver>a>div>p{
-    margin: 2%;
-    border: black double 5px;
-    border-radius: 15px;
-    text-align: center;
-    background-color: silver;
-    font-size: 1.5em;
-    color: black;
-
-}
-#volver>a>div>p:hover{
-    color: snow;
-    background-color: #615D5C;
-
-}
-
 #menu{
     width: 94%;
     margin: 3%;

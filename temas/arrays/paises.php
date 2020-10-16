@@ -5,9 +5,9 @@
 $continentes = array(
     "Europa" => array(
         array("nombre"=>"España","capital"=>"Madrid","bandera"=>"espana.png"),
-        array("nombre"=>"Italia","capital"=>"Pekin","bandera"=>"italia.png"),
-        array("nombre"=>"Alemania","capital"=>"Pekin","bandera"=>"alemania.png"),
-        array("nombre"=>"Francia","capital"=>"Pekin","bandera"=>"francia.png"),
+        array("nombre"=>"Italia","capital"=>"Sicilia","bandera"=>"italia.png"),
+        array("nombre"=>"Alemania","capital"=>"Berlin","bandera"=>"alemania.png"),
+        array("nombre"=>"Francia","capital"=>"Paris","bandera"=>"francia.png"),
         array("nombre"=>"Portugal","capital"=>"Lisboa","bandera"=>"portugal.png")),
     "Asia" => array(        
         array("nombre"=>"China","capital"=>"Pekin","bandera"=>"china.png"),
