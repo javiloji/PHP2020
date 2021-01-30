@@ -1,7 +1,7 @@
 
 <?php
 
-include "datos/datos.php";
+// include "datos/datos.php";
 
 ?>
 

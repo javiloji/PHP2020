@@ -1,12 +1,36 @@
 
 <?php
 
-include "datos/datos.php";
+require_once "vendor/autoload.php";
 
-// require_once "vendor/autoload.php";
+// include "datos/datos.php";
 
-// use App\Models\Blog;
-// use App\Models\Comment;
+use App\Models\Blog;
+use App\Models\Comment;
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'bd_symblog',
+    'username'  => 'loji',
+    'password'  => 'romano',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+
+$blogs = Blog::all();
+
+$comments = Comment::all();
 
 ?>
 
@@ -54,17 +78,17 @@ include "datos/datos.php";
                     <time datetime=" "> </time>
                 </div>
                 <header>
-                <?php echo "<h2><a href='show_sb.php?id=".$key."'>";  echo $blog->getTitle(); echo "</a></h2>";  ?>
+                <?php echo "<h2><a href='show_sb.php?id=".$key."'>";  echo $blog["title"]; echo "</a></h2>";  ?>
                 </header>
-                <img src="img/<?php echo $blog->getImage()?>" />
+                <img src="img/<?php echo $blog["image"]?>" />
                 <div class="snippet">
-                    <p> <?php echo $blog->getBlog()?> </p>
+                    <p> <?php echo $blog["blog"]?> </p>
                     <p class="continue"><a href="#">Continue reading...</a></p>
                 </div>
                 <footer class="meta">
                     <p>Comments: <a href="#"><?php echo $blog->numComments() ?></a></p>
-                    <p>Posted by <span class="highlight"><?php echo $blog->getAuthor()?></span> at 07:06PM</p>
-                    <p>Tags: <span class="highlight"><?php echo $blog->getTags()?></span></p>
+                    <p>Posted by <span class="highlight"><?php echo $blog["author"]?></span> at 07:06PM</p>
+                    <p>Tags: <span class="highlight"><?php echo $blog["tags"]?></span></p>
                 </footer>
 
                 <?php
@@ -93,13 +117,13 @@ include "datos/datos.php";
 
                     <header>
                         
-                        <p class="small"><span class="highlight"><?php echo $comment->getUser() ?></span> commented on
-                            <a href="#"><?php echo $comment->getBlog()->getTitle() ?></a>
+                        <p class="small"><span class="highlight"><?php echo $comment["user"] ?></span> commented on
+                            <a href="#"><?php echo $comment["blog_id"]["title"] ?></a>
                         </p>
 
                    
                     </header>
-                    <p><?php echo $comment->getComment() ?></p>
+                    <p><?php echo $comment["comment"] ?></p>
 
                     <?php } ?>
 

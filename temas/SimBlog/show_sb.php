@@ -1,7 +1,36 @@
 
 <?php
 
-include "datos/datos.php";
+require_once "vendor/autoload.php";
+
+// include "datos/datos.php";
+
+use App\Models\Blog;
+use App\Models\Comment;
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'bd_symblog',
+    'username'  => 'loji',
+    'password'  => 'romano',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+
+$blogs = Blog::all();
+
+$comments = Comment::all();
 
 ?>
 
@@ -50,17 +79,17 @@ include "datos/datos.php";
                     <time datetime=" "> </time>
                 </div>
                 <header>
-                    <h2><a href="#"> <?php  echo $blog->getTitle(); ?> </a></h2>
+                    <h2><a href="#"> <?php  echo $blog["title"]; ?> </a></h2>
                 </header>
-                <img src="img/<?php echo $blog->getImage()?>" />
+                <img src="img/<?php echo $blog["image"]?>" />
                 <div class="snippet">
-                    <p> <?php echo $blog->getBlog()?> </p>
+                    <p> <?php echo $blog["blog"]?> </p>
                     <p class="continue"><a href="#">Continue reading...</a></p>
                 </div>
                 <footer class="meta">
                     <p>Comments: <a href="#"> Numero comentarios </a></p>
-                    <p>Posted by <span class="highlight"><?php echo $blog->getAuthor()?></span> at 07:06PM</p>
-                    <p>Tags: <span class="highlight"><?php echo $blog->getTags()?></span></p>
+                    <p>Posted by <span class="highlight"><?php echo $blog["author"]?></span> at 07:06PM</p>
+                    <p>Tags: <span class="highlight"><?php echo $blog["tags"]?></span></p>
                 </footer>
 
                 <?php
@@ -84,8 +113,8 @@ include "datos/datos.php";
                     echo "<article class=\"comments\">";
                     
                     echo "<div style = 'background-color: #EFEEEE; padding: 10px; margin: 10px 0px;' class=\"comments\">";
-                    echo "<p><span class=\"highlight\">" . $value->getUser() . "</span> commented </p>";
-                    echo "<p>" . $value->getComment() . "</p>";
+                    echo "<p><span class=\"highlight\">" . $value["user"] . "</span> commented </p>";
+                    echo "<p>" . $value["comment"] . "</p>";
                     echo "</div>";
                     echo "</article>";
                 }

@@ -1,9 +1,11 @@
 
 <?php
 
-include "datos/datos.php";
-
 require_once "vendor/autoload.php";
+
+// include "datos/datos.php";
+
+use App\Models\Blog;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -12,9 +14,9 @@ $capsule = new Capsule;
 $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'database',
-    'username'  => 'root',
-    'password'  => 'password',
+    'database'  => 'bd_symblog',
+    'username'  => 'loji',
+    'password'  => 'romano',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
@@ -24,6 +26,19 @@ $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
+
+
+if(isset($_POST["annadir"])){
+    if(!empty($_POST)){
+        $blog = new Blog();
+        $blog->title = $_POST["title"];
+        $blog->blog = $_POST["description"];
+        $blog->tags = $_POST["tags"];
+        $blog->author = $_POST["author"];
+        $blog->save();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
